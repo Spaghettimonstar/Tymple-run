@@ -18,7 +18,7 @@ Lever [Switch, lever, interact, bridge, signal, pull]
 “Boss” level
 Parkour→ Platforms will randomly generate upon entering the  boss room every 10 traps, and random words will be inscribed on them. Players have to type the words pretty fast(increase compared to other traps), otherwise the platforms the player is on(visibly shaking, shaking increases over time to signify time running out) will fall and the player will die.
 
- #Maybe add this function/future plans
+ ## Maybe add this function/future plans
 Reaction?
 Synonyms for these actions maybe
 Breathed(Might have to hold H to hold your breathe and not die of poision)
