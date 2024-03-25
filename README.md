@@ -8,13 +8,42 @@ Player loads into game, and the character automatically starts running. Randomly
 
 ## Traps
 ### Spikes[Words generated; Spines, Points, Sharp, iron, Spikes]
+Spines, points, sharp, iron, spikes
 ### Pitfall[Words generated; Hole, Pothole, Pitfall, abyss, drop, missing, trip]
+Hole, pothole, pitfall, abyss, drop, missing, trip
 ### Boulder[Words generated;Boulder,rock,big,stone,bedrock,rock debris]
+Boulder, rock, big, stone, bedrock, rock debris, rolling
 ### Arrows[Arrow,flying,feather,stick,Spine,dart,bolt]
+Arrow. flying, feather, stick, spine, dart, bolt
 ### Tripwire[Tripwire, string, trap, hazard, surprise, unexpected]
+Tripwire
+String
+Trap
+Hazard
+Surprise
+unexpected
 ### Snakes[Slithering, Snakes, Serpent, Strike, Hungry, Writhing,venom]
+Slithering
+Snakes
+Serpents
+Strike
+Hungry
+Writhing
+Venom
 ### Poison[Poison, gas, air ,toxin ,opaque,breathed,]
+Poison
+Gas
+Air
+Toxic
+Opaque
+Breathed
 ### Lever [Switch, lever, interact, bridge, signal, pull]
+Switch
+lever
+interact
+bridge
+signal
+pull
 ### “Boss” level
 Parkour→ Platforms will randomly generate upon entering the  boss room every 10 traps, and random words will be inscribed on them. Players have to type the words pretty fast(increase compared to other traps), otherwise the platforms the player is on(visibly shaking, shaking increases over time to signify time running out) will fall and the player will die.
 
