@@ -7,8 +7,9 @@ A typing game about evading traps and obstacles by typing words out.
 Player loads into game, and the character automatically starts running. Randomly, traps will pop up either with the associated word(Spikes, pitfall, boulder, etc), an associated word(Points, Hole, Rock), or random words assigned to traps. If the player types the word in time(Or correctly?), the player will dodge the trap. If reaction function  is added, players will need to type the words associated with the trap to observe it successfully, and then need to type words or hold letters(after typing) to avoid dying.
 
 ## Traps
-### Spikes[Words generated]
+### Spikes[
 Spines, points, sharp, iron, spikes
+]
 ### Pitfall[Words generated]
 Hole, pothole, pitfall, abyss, drop, missing, trip
 ### Boulder[Words generated]
