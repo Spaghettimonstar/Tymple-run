@@ -36,3 +36,12 @@ Jump→to jump over traps
 run---> to run from boulder
 dodge--->to dodge from traps[Zigzag, weave, twist]
 observe---> to see tripwire
+
+Boss parkour level gets harder either by
+longer words to spell
+shorter time to spell word/jump
+no mistakes/strike system
+
+
+Maybe add an ending room?
+reach level 20 = you win..
