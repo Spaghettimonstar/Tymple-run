@@ -1,0 +1,155 @@
+**"mySketch"**
+let TheSpikes
+let thePlayer
+
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	background(100);
+	
+//calls the halls class and plays it
+	var theHalls = new hall(); 
+		
+	
+	//calls the player class and plays it
+ thePlayer = new player();
+	
+	  // thePlayer.alive()
+	//calls the trap class and plays it
+	TheSpikes = new Spikes();
+	
+	//Spikes
+	var spikes = ['spikes', 'points', 'sharp', 'iron', 'spines']
+var spikeTrap = spikes[Math.floor(Math.random()*spikes.length)];
+console.log("spike word is " + spikeTrap)
+//Pitfall
+var pit = ['hole', 'pothole', 'pitfall', 'abyss', 'drop', 'missing', 'trip']
+var pitTrap = pit[Math.floor(Math.random()*pit.length)];
+console.log("pit word is " + pitTrap)
+//Boulder
+var boulder = ['boulder', 'rock', 'big', 'stone', 'bedrock', 'rock debris', 'rolling']
+var boulderTrap = boulder[Math.floor(Math.random()*boulder.length)];
+console.log("boulder word is " + boulderTrap)
+//Arrows
+var arrows = ['arrow', 'flying', 'feather', 'stick', 'dart', 'bolt']
+var arrowTrap = arrows[Math.floor(Math.random()*arrows.length)];
+console.log(" arrow word is " + arrowTrap)
+//Tripwire
+var tripwire = ['tripwire', 'string', 'trap', 'hazard', 'surprise', 'unexpected']
+var tripwireTrap = tripwire[Math.floor(Math.random()*tripwire.length)];
+console.log("tripwire word is " + tripwireTrap)
+//Snakes
+var snakes = ['snakes', 'slithering', 'serpents', 'strike', 'hungry','writhing', 'venomous']
+var snakeTrap = snakes[Math.floor(Math.random()*snakes.length)];
+console.log("snakes word is " + snakeTrap)
+//Poison
+var poison = ['poison', 'gas', 'air', 'toxic', 'opaque', 'breathed']
+var poisonTrap = poison[Math.floor(Math.random()*poison.length)];
+console.log("poison word is " + poisonTrap)
+//Lever/bridge
+var lever = ['lever', 'switch', 'interact', 'bridge', 'signal', 'pull']
+var leverTrap = lever[Math.floor(Math.random()*lever.length)];
+console.log("lever word is " + leverTrap)
+//The boss(level)
+var boss = ['extravagant', 'improvident', 'focusing', 'handkerchief', 'narcissistic', 'spaghetti', 'island', 'eight', 'golden', 'table', 'lightning', 'seperate']
+var bossTrap = boss[Math.floor(Math.random()*boss.length)];
+console.log(" boss word is " + bossTrap)
+
+
+}
+
+
+**"hitbox"**
+class hitbox {
+	constructor() {
+		// set a position here, have player override it
+	this.x = 0
+	this.y = 0
+	// var collision = get();
+	}
+}
+
+**"player"**
+//player class
+class player extends hitbox  {
+	constructor (color) {
+		super()
+		//assigns colors
+		var colors = ['red' , 'blue', 'yellow', 'green']
+		//randomizes colors
+	this.colorRandom = random(colors);
+		//prints out the randomized output
+	print("color is " + this.colorRandom)
+		
+		this.x = windowWidth / 6
+		this.y = windowHeight / 3
+		
+	}
+	// alive() {
+	// 	boolean (isalive = true)
+	// }
+		draw() {
+			//Fills the rectange(next line)
+			fill(this.colorRandom)
+		//draws rectangle at windowWidth divided by 6, windowHeight divided y 3, and with a width of 150, and height of 300
+		rect(this.x, this.y, 150, 300);
+			
+		}
+
+		
+	
+}
+
+**"spikes"**
+class Spikes extends hitbox {
+	constructor() {
+	super()
+		this.x = windowWidth / 1.43
+		this.y = windowHeight / 1.46
+		this.x2 = windowWidth / 1.28
+		this.y2 = windowHeight / 1.46
+		this.x3 = windowWidth / 1.35
+		this.y3 = windowHeight / 1.6
+		print("trap x is " + this.x, "trap y is " + this.y, "trap x2 is " + this.x2, "trap y2 is " + this.y2, "trap x3 is " + this.x3, "trap y3 is " + this.y3)
+	}
+	// move trap along the screen towards the player
+	moving() {
+		this.x--
+		this.x2--
+		this.x3--
+		
+	}
+	//make trap kill upon walking into it
+	
+	draw() {
+		fill('gray')
+		triangle(this.x,this.y, this.x2, this.y2, this.x3,this.y3)
+		
+	}
+}
+
+**"hall"**
+class hall {
+constructor (hallcolor) {
+	//assigns colors
+		var hallcolors = ['rgb(150,153,87)']
+	fill(hallcolors)
+	
+	rect(windowWidth / 600, windowHeight / 400, windowWidth, windowHeight)
+	
+	//draw the lines to make the brick look
+	
+	
+}
+	
+	
+	
+}
+
+**"draw"**
+function draw() {
+	TheSpikes.draw()
+	TheSpikes.moving()
+	thePlayer.draw()
+	
+	
+}
