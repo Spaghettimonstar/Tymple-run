@@ -1,57 +1,64 @@
 **"mySketch"**
+//variables
+let TheHalls
 let TheSpikes
 let thePlayer
+//lets playerTyped variable
+let playerTyped
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	background(100);
 	
 //calls the halls class and plays it
-	var theHalls = new hall(); 
+ TheHalls = new hall(); 
 		
 	
 	//calls the player class and plays it
  thePlayer = new player();
-	
+isalive = true
+	thePlayer.alive()
 	  // thePlayer.alive()
 	//calls the trap class and plays it
 	TheSpikes = new Spikes();
+	//playerTyped variable is the new typed class, or takes it over
+	playerTyped = new typed()
 	
 	//Spikes
-	var spikes = ['spikes', 'points', 'sharp', 'iron', 'spines']
-var spikeTrap = spikes[Math.floor(Math.random()*spikes.length)];
+spikes = ['spikes', 'points', 'sharp', 'iron', 'spines']
+spikeTrap = spikes[Math.floor(Math.random()*spikes.length)];
 console.log("spike word is " + spikeTrap)
 //Pitfall
-var pit = ['hole', 'pothole', 'pitfall', 'abyss', 'drop', 'missing', 'trip']
-var pitTrap = pit[Math.floor(Math.random()*pit.length)];
+ pit = ['hole', 'pothole', 'pitfall', 'abyss', 'drop', 'missing', 'trip']
+ pitTrap = pit[Math.floor(Math.random()*pit.length)];
 console.log("pit word is " + pitTrap)
 //Boulder
-var boulder = ['boulder', 'rock', 'big', 'stone', 'bedrock', 'rock debris', 'rolling']
-var boulderTrap = boulder[Math.floor(Math.random()*boulder.length)];
+ boulder = ['boulder', 'rock', 'big', 'stone', 'bedrock', 'rock debris', 'rolling']
+ boulderTrap = boulder[Math.floor(Math.random()*boulder.length)];
 console.log("boulder word is " + boulderTrap)
 //Arrows
-var arrows = ['arrow', 'flying', 'feather', 'stick', 'dart', 'bolt']
-var arrowTrap = arrows[Math.floor(Math.random()*arrows.length)];
+ arrows = ['arrow', 'flying', 'feather', 'stick', 'dart', 'bolt']
+ arrowTrap = arrows[Math.floor(Math.random()*arrows.length)];
 console.log(" arrow word is " + arrowTrap)
 //Tripwire
-var tripwire = ['tripwire', 'string', 'trap', 'hazard', 'surprise', 'unexpected']
-var tripwireTrap = tripwire[Math.floor(Math.random()*tripwire.length)];
+ tripwire = ['tripwire', 'string', 'trap', 'hazard', 'surprise', 'unexpected']
+ tripwireTrap = tripwire[Math.floor(Math.random()*tripwire.length)];
 console.log("tripwire word is " + tripwireTrap)
 //Snakes
-var snakes = ['snakes', 'slithering', 'serpents', 'strike', 'hungry','writhing', 'venomous']
-var snakeTrap = snakes[Math.floor(Math.random()*snakes.length)];
+ snakes = ['snakes', 'slithering', 'serpents', 'strike', 'hungry','writhing', 'venomous']
+ snakeTrap = snakes[Math.floor(Math.random()*snakes.length)];
 console.log("snakes word is " + snakeTrap)
 //Poison
-var poison = ['poison', 'gas', 'air', 'toxic', 'opaque', 'breathed']
-var poisonTrap = poison[Math.floor(Math.random()*poison.length)];
+ poison = ['poison', 'gas', 'air', 'toxic', 'opaque', 'breathed']
+ poisonTrap = poison[Math.floor(Math.random()*poison.length)];
 console.log("poison word is " + poisonTrap)
 //Lever/bridge
-var lever = ['lever', 'switch', 'interact', 'bridge', 'signal', 'pull']
-var leverTrap = lever[Math.floor(Math.random()*lever.length)];
+ lever = ['lever', 'switch', 'interact', 'bridge', 'signal', 'pull']
+ leverTrap = lever[Math.floor(Math.random()*lever.length)];
 console.log("lever word is " + leverTrap)
 //The boss(level)
-var boss = ['extravagant', 'improvident', 'focusing', 'handkerchief', 'narcissistic', 'spaghetti', 'island', 'eight', 'golden', 'table', 'lightning', 'seperate']
-var bossTrap = boss[Math.floor(Math.random()*boss.length)];
+ boss = ['extravagant', 'improvident', 'focusing', 'handkerchief', 'narcissistic', 'spaghetti', 'island', 'eight', 'golden', 'table', 'lightning', 'seperate']
+ bossTrap = boss[Math.floor(Math.random()*boss.length)];
 console.log(" boss word is " + bossTrap)
 
 
@@ -82,11 +89,16 @@ class player extends hitbox  {
 		
 		this.x = windowWidth / 6
 		this.y = windowHeight / 3
-		
+		print("player x is " + this.x, "player y is " + this.y)
 	}
-	// alive() {
-	// 	boolean (isalive = true)
-	// }
+	alive() {
+		 if (isalive) {
+		print(" is alive " + isalive)
+		 }
+		else {
+			print("player dead ")
+		}
+	}
 		draw() {
 			//Fills the rectange(next line)
 			fill(this.colorRandom)
@@ -98,7 +110,6 @@ class player extends hitbox  {
 		
 	
 }
-
 **"spikes"**
 class Spikes extends hitbox {
 	constructor() {
@@ -147,9 +158,45 @@ constructor (hallcolor) {
 
 **"draw"**
 function draw() {
+	clear()
+	TheHalls.draw()
 	TheSpikes.draw()
 	TheSpikes.moving()
 	thePlayer.draw()
-	
-	
+	//calls playerTyped[or typed class]'s draw function
+	playerTyped.draw()
+// 
 }
+
+**"typed"**
+class typed {
+	constructor () {
+		//empty variable
+		this.keys = ''
+		this.x = windowWidth / 10
+		this.y = windowHeight / 20
+	}
+	//draw function that draws whats in it
+	draw() {
+		textSize(30);
+		text('You typed  ' + this.keys, this.x, this.y)
+	}
+
+}
+
+
+**"keyPressed"**
+function keyPressed() {
+		//if the key pressed = W
+		if(keyCode == 87) {
+			//adds to playerTyped's keys variabe[which is nothing], so its value is 'W'
+			playerTyped.keys  += 'W'
+			
+		}
+		
+	}
+**"SpikeWords"**
+//here copy or inherit spikes class(?) then change the why so the words are underneath the spikes.
+//from there, try to have the words in setup that are spikes randomized
+//then, try to detect what letters are in that word
+//try to detect if what the player types matches up with the letter's placement
