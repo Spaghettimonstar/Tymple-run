@@ -186,17 +186,22 @@ class typed {
 
 
 **"keyPressed"**
-function keyPressed() {
+function keyTyped() {
 		//if the key pressed = W
-		if(keyCode == 87) {
+		//  used to be code --> if(keyCode == 87) {
 			//adds to playerTyped's keys variabe[which is nothing], so its value is 'W'
-			playerTyped.keys  += 'W'
+			// used to be code -->playerTyped.keys  += 'W'
 			
-		}
-		
+		// }
+		playerTyped.keys = key
 	}
 **"SpikeWords"**
-//here copy or inherit spikes class(?) then change the why so the words are underneath the spikes.
-//from there, try to have the words in setup that are spikes randomized
 //then, try to detect what letters are in that word
 //try to detect if what the player types matches up with the letter's placement
+
+**"gameOver"**
+//make something to detect if player types the word wrong, send them to the gameOver screen
+//to test this out, make the player alive false first to see if it goes to this screen
+//make have a restart button that(not really urgent)
+//once this is done, make the detecion for what the player types, and if it matches up with the word
+//is player gets it wrong, set to game over screen. 
