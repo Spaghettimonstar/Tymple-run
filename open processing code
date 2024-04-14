@@ -165,7 +165,13 @@ function draw() {
 	thePlayer.draw()
 	//calls playerTyped[or typed class]'s draw function
 	playerTyped.draw()
-// 
+if (isalive) {
+	
+}
+	else if(!isalive) {
+		clear()
+		Dead();
+	}
 }
 
 **"typed"**
@@ -175,14 +181,28 @@ class typed {
 		this.keys = ''
 		this.x = windowWidth / 10
 		this.y = windowHeight / 20
+		this.detectTyped = false
+		this.spikeTrap = TheSpikes.spikeTrap
 	}
+	
+	test() {
+	if (this.keys == TheSpikes.spikeTrap) {
+		this.detectTyped = true
+	}
+	
+}
 	//draw function that draws whats in it
 	draw() {
 		textSize(30);
 		text('You typed  ' + this.keys, this.x, this.y)
+		//repeats this continousely, but we got here
+		if(this.detectTyped) {
+print("we got here ")			
+		}
 	}
 
 }
+
 
 
 **"keyPressed"**
@@ -193,15 +213,21 @@ function keyTyped() {
 			// used to be code -->playerTyped.keys  += 'W'
 			
 		// }
-		playerTyped.keys = key
+	
+	
+		playerTyped.keys += key
+	//upon typing a key, run playerTyped.test
+	playerTyped.test()
+	}
 	}
 **"SpikeWords"**
 //then, try to detect what letters are in that word
 //try to detect if what the player types matches up with the letter's placement
 
 **"gameOver"**
-//make something to detect if player types the word wrong, send them to the gameOver screen
-//to test this out, make the player alive false first to see if it goes to this screen
-//make have a restart button that(not really urgent)
-//once this is done, make the detecion for what the player types, and if it matches up with the word
-//is player gets it wrong, set to game over screen. 
+function Dead() {
+	
+	textAlign(CENTER)
+	textSize(50);
+	text("You died", windowWidth / 2, windowHeight / 2)
+	
